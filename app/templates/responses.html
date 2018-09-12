@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% for i in range(11)[1:] %}
+	<article class="media content-section">
+	  <div class="media-body">
+	    <div class="article-metadata">
+	      <b>Fråga {{ i }}</b><p>{{ questions[i] }}</p>
+	    </div>
+	    <h2><a class="article-title" href="#">{{ responses[i] }}</a></h2>
+	  </div>
+	</article>
+{% endfor %}
+{% endblock content%}

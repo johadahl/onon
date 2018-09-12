@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="content-section">
+	  <div class="media">
+	    <div class="media-body">
+	      <p class="text-secondary">Inloggad som {{ current_user.email }}</p>
+	    </div>
+	  </div>
+		<form method="POST" action="">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Kontoinformation</legend>
+				<div class="form-group">
+					{{ form.email.label(class="form-control-label") }}
+					{% if form.email.errors %}
+						{{ form.email(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for errors in form.email.errors %}
+							<span>{{ errors }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.email(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+				
+			</fieldset>
+			<div class="form-group">
+				{{ form.submit(class="btn btn-outline-info") }}
+			</div>
+		</form>
+	</div>
+{% endblock content%}

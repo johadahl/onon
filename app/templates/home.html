@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<style type="text/css">
+body {
+	background: url(https://imagevaultprod.vwgroup.se/publishedmedia/d1ewc671bzgk7ytpxmje/VW_Group_v-ggskylt_2.jpg);
+	background-size: 100% 100%;
+}
+
+div.transbox {
+  margin: 20px;
+  background-color: #ffffff;
+  opacity: 0.8;
+  border-radius: 12px;
+}
+
+</style>
+
+{% if current_user.is_authenticated %}
+	<div class="transbox"><center><h1 style="margin-top: 330px">Gå till <a href="{{ url_for('kund') }}">kundsida</a> för att söka efter kundinformation</h1></center></div>
+{% else %}
+	<div class="transbox"><center><h1 style="margin-top: 330px"><a href="{{ url_for('login') }}">Logga in</a> för att kunna söka efter företag</h1></center></div>
+{% endif %}
+
+
+{% endblock content%}
